@@ -37,7 +37,7 @@ class NumMod(loader.Module):
 					for x in range(int(ot_do[0]),int(ot_do[1])+1):
 						list_args.append(str(x))
 				except:
-					await message.respond('Используй правильно функцию "от-до"')
+					await message.respond('Ты ввел хуйню переделывай.')
 					return
 			else:
 				list_args.append(i)
