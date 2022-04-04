@@ -23,12 +23,12 @@ class NumMod(loader.Module):
 		count_st = 0
 		count_hf = 0
 		if not reply:
-			await message.edit('Нет реплая.')
+			await message.edit('Ты ввел хуйню переделывай.')
 			return
 		args = utils.get_args_raw(message)
 		list_args=[]
 		if not args:
-			await message.edit('Нет аргументов')
+			await message.edit('Ты ввел хуйню переделывай.')
 			return
 		for i in args.split(' '):
 			if '-' in i:
