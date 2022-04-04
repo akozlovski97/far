@@ -23,12 +23,12 @@ class NumMod(loader.Module):
 		count_st = 0
 		count_hf = 0
 		if not reply:
-			await message.edit('<b>Ты ввел хуйню переделывай.')
+			await message.edit('<b>Ты ввел хуйню переделывай.</b>')
 			return
 		args = utils.get_args_raw(message)
 		list_args=[]
 		if not args:
-			await message.edit('<b>Ты ввел хуйню переделывай.')
+			await message.edit('<b>Ты ввел хуйню переделывай.</b>')
 			return
 		for i in args.split(' '):
 			if '-' in i:
@@ -37,7 +37,7 @@ class NumMod(loader.Module):
 					for x in range(int(ot_do[0]),int(ot_do[1])+1):
 						list_args.append(str(x))
 				except:
-					await message.respond('<b>Ты ввел хуйню переделывай.')
+					await message.respond('<b>Ты ввел хуйню переделывай.</b>')
 					return
 			else:
 				list_args.append(i)
@@ -71,10 +71,10 @@ class NumMod(loader.Module):
 			await asyncio.sleep(3)
 				
 		if not count_st:
-			await message.edit('<b>Ты ввел хуйню переделывай.')
+			await message.edit('<b>Ты ввел хуйню переделывай.</b>')
 			
 		elif not count_hf:
-			await message.edit('<b>Ты ввел хуйню переделывай.')
+			await message.edit('<b>Ты ввел хуйню переделывай.</b>')
 			
 		elif len(list_args) >= 3:
 			await message.respond('<b>Заражения успешно завершены.</b>')
@@ -84,7 +84,7 @@ class NumMod(loader.Module):
 		reply = await message.get_reply_message()
 		exlist = self.db.get("NumMod", "exUsers")
 		if not reply:
-			await message.edit('<b>Ты ввел хуйню переделывай.')
+			await message.edit('<b>Ты ввел хуйню переделывай.</b>')
 			return
 		json = JSON.loads(reply.to_json())
 		for i in range(0, len(reply.entities) ):
