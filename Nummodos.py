@@ -78,6 +78,8 @@ class NumMod(loader.Module):
 			
 		elif len(list_args) >= 3:
 			await message.respond('<b>Заражения успешно завершены.</b>')
+                await asyncio.sleep(3)
+        await message.delete
 			
 	async def zarcmd(self, message):
 		"Заражает всех по реплаю."
