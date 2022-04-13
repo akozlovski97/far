@@ -5,7 +5,7 @@ import json as JSON
 from datetime import datetime, date, time
 
 class NumMod(loader.Module):
-	"Заражает по реплаю."
+	"Облегчает жизнь смертным."
 	strings={"name": "NumMod"}
 	
 	async def client_ready(self, client, db):
