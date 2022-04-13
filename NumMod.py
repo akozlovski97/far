@@ -16,7 +16,7 @@ class NumMod(loader.Module):
 			self.db.set("NumMod", "infList", {})
 		
 	async def numcmd(self, message):
-		"<b>.num (arg) (arg) (arg)....\nВ качестве аргументов используй числа или первые символы строки.</b>"
+		".num (аргумент) (аргумент) (аргумент)...\nВ качестве аргументов используй числа или первые символы строки."
 		reply = await message.get_reply_message()
 		a = reply.text
 		exlist = self.db.get("NumMod", "exUsers")
@@ -110,7 +110,7 @@ class NumMod(loader.Module):
 		await message.delete() 
 		
 	async def exnumcmd(self, message):
-		"Добавляет исключения в модуль.\nИспользуй: .exnum {@user/@id}"
+		"Добавляет исключения в модуль.\nИспользуй: .exnum (@user/@id)"
 		args = utils.get_args_raw(message)
 		exlistGet = self.db.get("NumMod", "exUsers")
 		exlist = exlistGet.copy()
@@ -143,7 +143,7 @@ class NumMod(loader.Module):
 		await message.edit(f'<b>Пользователь</b> <code>{args}</code> <b>добавлен.</b>')
 		
 	async def zarlistcmd(self, message):
-		""" Лист ваших заражений.\n.zarlist {@id/user} {count} {args}\nДля удаления: .zarlist {@id/user}\nАргументы:\n-k -- Добавить тысячу к числу.\n-f -- Поиск по ид'у/юзеру.\n-r -- Добавляет в список по реплаю."""
+		""" Лист ваших заражений.\n.zarlist (@id/user) (цифра) {аргумент}\nДля удаления: .zarlist (@id/user)\nАргументы:\n-k -- Добавить тысячу к числу.\n-f -- Поиск по ид'у/юзеру.\n-r -- Добавляет в список по реплаю."""
 		args = utils.get_args_raw(message)
 		infList = self.db.get("NumMod", "infList")
 		timezone = "Europe/Kiev"
@@ -204,7 +204,7 @@ class NumMod(loader.Module):
 				await utils.answer(message, f"<b>Пользователь</b> <code>{user}</code> <b>добавлен в список заражений.</b>\n<b>Число</b>: <code>{count}</code>\n<b>Дата</b>: <b>{vremya}</b>")
 
 	async def numfiltercmd(self, message):
-		""" .numfilter (args1) (args2 или reply) \nВызови команду, чтобы просмотреть аргументы."""
+		""".numfilter (аргумент) (аргумент2 или реплай) \nВызови команду, чтобы просмотреть аргументы."""
 		args = utils.get_args_raw(message)
 		reply = await message.get_reply_message()
 		filter_and_users = self.db.get("NumMod", "numfilter", {'users': [], 'filter': None, 'status': False})
