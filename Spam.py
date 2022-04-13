@@ -12,9 +12,9 @@ def register(cb):
 
 @loader.tds
 class SpamMod(loader.Module):
-    """Пишет много одинаковых сообщений>"""
+    """Пишет много одинаковых сообщений"""
     strings = {"name": "SpamMod",
-               "need_spam": "<b>.spam <цифра> <сообщение> </b>",
+               "need_spam": "<b>.spam (цифра) (сообщение) </b>",
                "spam_urself": "<b>Начинай спамить! Давай!</b>",
                "nice_number": "<b>Это не цифра, чел!</b>",
                "much_spam": "<b>Вот это я понимаю спам 0 раз!</b>"}
@@ -23,7 +23,7 @@ class SpamMod(loader.Module):
         self.name = self.strings["name"]
 
     async def spamcmd(self, message):
-        """.spam <цифра> <сообщение>"""
+        """.spam (цифра) (сообщение)"""
         use_reply = False
         args = utils.get_args(message)
         logger.debug(args)
