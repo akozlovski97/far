@@ -48,13 +48,13 @@ class SpamMod(loader.Module):
             await utils.answer(message, self.strings["much_spam"])
             return
         await message.delete()
-        if count > 20:
+        if count > 100:
             # Be kind to other people
             sleepy = 2
         else:
             sleepy = 0
         i = 0
-        size = 1 if sleepy else 100
+        size = 1 if sleepy else 200
         while i < count:
             await asyncio.gather(*[message.respond(spam) for x in range(min(count, size))])
             await asyncio.sleep(sleepy)
