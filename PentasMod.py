@@ -1,4 +1,5 @@
 from .. import loader, utils
+import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 import logging
