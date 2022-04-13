@@ -174,7 +174,7 @@ class NumMod(loader.Module):
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"<b>Пользователь</b> <code>{args}</code> <b>удалён из списка.</b>")
 			elif args_list[0][0] != '@':
-				await utils.answer(message, '<b>Это не</b> <code>@user/@id</code>.')
+				await utils.answer(message, '<b>Это не</b> <code>@id/user</code>.')
 			else:
 				try:
 					user, count = str(args_list[0]), float(args_list[1])
