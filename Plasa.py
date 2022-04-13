@@ -23,8 +23,6 @@ class PentaMod(loader.Module):
                 
                 perc += random.randint(1, 3)
                 sleep(0.1)
-        except:
-            return await message.edit("Ошибка, попробуй еще раз")
                 
         msg.edit("🟢 Пентагон успешно взломан!")
         sleep(3)
