@@ -2,13 +2,10 @@ from .. import loader, utils
 import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-import logging
 import asyncio
 import time
 from time import sleep
 import random
-
-logger = logging.getLogger(__name__)
 
 def register(cb):
     cb(PentaMod())
