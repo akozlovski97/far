@@ -110,7 +110,7 @@ class NumMod(loader.Module):
 		await message.delete() 
 		
 	async def exnumcmd(self, message):
-		"Добавляет исключения в модуль.\nИспользуй: .exnum (@user/@id)"
+		"Добавляет исключения в модуль.\nИспользуй:  .exnum (@id/user)"
 		args = utils.get_args_raw(message)
 		exlistGet = self.db.get("NumMod", "exUsers")
 		exlist = exlistGet.copy()
