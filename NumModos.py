@@ -69,6 +69,7 @@ class NumMod(loader.Module):
 							await message.reply('<b>Ты ввел хуйню!?</b>')
 							break
 			await asyncio.sleep(3)
+		await message.delete() 
 				
 		if not count_st:
 			await message.edit('<b>Не найдено ни одного совпадения в начале строк с аргументами.</b>')
