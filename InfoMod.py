@@ -32,7 +32,7 @@ class WhoIsMod(loader.Module):
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
 
-        await message.edit("<b>Получаю информацию...</b>")
+        await message.edit("<b>Загружаю информацию...</b>")
 
         try:
             if args:
@@ -117,7 +117,7 @@ async def get_user_info(user, message):
         user_id, str(user_id) + ".jpg", download_big=True
     )
     caption = (
-        f"<b>ИНФОРМАЦИЯ ПРО ЧЕЛОВЕКА:</b>\n\n"
+        f"<b>ИНФОРМАЦИЯ ПРО ПОЛЬЗОВАТЕЛЯ:</b>\n\n"
         f"<b>Имя:</b> {first_name}\n"
         f"<b>Фамилия:</b> {last_name}\n"
         f"<b>Ник:</b> @{username}\n"
@@ -254,14 +254,14 @@ async def get_chat_info(chat, message):
             bots += 1
 
     caption = "<b>ИНФОРМАЦИЯ ПРО ЧАТ:</b>\n\n"
-    caption += f"<b>ID группы:</b> {chat_obj_info.id}\n"
+    caption += f"<b>ID группы:</b> <code>@{chat_obj_info.id}</code>\n"
     if chat_title is not None:
         caption += f"<b>Название группы:</b> {chat_title}\n"
     if former_title is not None:
         caption += f"<b>Предыдущее название:</b> {former_title}\n"
     if username is not None:
         caption += "<b>Тип группы:</b> Публичный\n"
-        caption += f"<b>Ссылка:</b> {username}\n"
+        caption += f"<b>Ник группы:</b> {username}\n"
     else:
         caption += "<b>Тип группы:</b> Приватный\n"
     if creator_username is not None:
