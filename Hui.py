@@ -14,7 +14,7 @@ def register(cb):
 
 @loader.tds
 class Ебал_я_в_рот_ваш_пеп_8_Mod(loader.Module):
-	"""Гавно залупное"""
+	"""Хуифицирует слова на хуи"""
 	strings = {
 		"name": "Хуификатор"
 	}
@@ -25,6 +25,7 @@ class Ебал_я_в_рот_ваш_пеп_8_Mod(loader.Module):
 	
 	@loader.sudo
 	async def хуйcmd(self, message):
+		"""Добавляет ху к слову"""
 		text = utils.get_args(message)
 		if not text:
 			reply = await message.get_reply_message()
@@ -58,6 +59,7 @@ class Ебал_я_в_рот_ваш_пеп_8_Mod(loader.Module):
 		await message.edit(" ".join(out))
 		
 	async def хуйняcmd(self, message):
+		
 		text = utils.get_args(message)
 		if not text:
 			reply = await message.get_reply_message()
