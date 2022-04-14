@@ -22,7 +22,7 @@ from .. import loader, utils
 class InfoMod(loader.Module):
     """Get info about user/chat"""
 
-    strings = {"name": "Information"}
+    strings = {"name": "InfoMod"}
 
     async def userinfocmd(self, message):
         """.whois <@ or reply or id>; Northing"""
