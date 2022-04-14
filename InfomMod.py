@@ -104,10 +104,10 @@ async def get_user_info(user, message):
         pass
 
     user_id = uuser.id
-    first_name = uuser.first_name or "null"
-    last_name = uuser.last_name or "null"
-    username = uuser.username or "null"
-    user_bio = user.about or "null"
+    first_name = uuser.first_name or "Нету"
+    last_name = uuser.last_name or "Нету"
+    username = uuser.username or "Нету"
+    user_bio = user.about or "Нету"
     common_chat = user.common_chats_count
     is_bot = "Да" if uuser.bot else "Нет"
     restricted = "Да" if uuser.restricted else "Нет"
