@@ -62,7 +62,7 @@ class RPMod(loader.Module):
             message,
             self.strings("rplist").format(
                 "\n".join(
-                    [f"    🇨🇭 {command} - {msg}" for command, msg in self.rp.items()]
+                    [f" 🔴  {command} - {msg}" for command, msg in self.rp.items()]
                 )
             ),
         )
