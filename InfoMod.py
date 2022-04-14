@@ -19,7 +19,7 @@ from .. import loader, utils
 
 
 @loader.tds
-class WhoIsMod(loader.Module):
+class InfoMod(loader.Module):
     """Get info about user/chat"""
 
     strings = {"name": "Information"}
