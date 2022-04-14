@@ -59,7 +59,7 @@ class Ебал_я_в_рот_ваш_пеп_8_Mod(loader.Module):
 		await message.edit(" ".join(out))
 		
 	async def хуйняcmd(self, message):
-		
+		"""Хуифицирует слова на -хуй-"""
 		text = utils.get_args(message)
 		if not text:
 			reply = await message.get_reply_message()
