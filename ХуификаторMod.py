@@ -9,11 +9,11 @@ import random
 logger = logging.getLogger(__name__)
 
 def register(cb):
-	cb(())
+	cb(ХуификаторMod())
 
 
 @loader.tds
-class Хуификатор (loader.Module):
+class ХуификаторMod (loader.Module):
 	"""Хуифицирует слова на хуи"""
 	strings = {
 		"name": "ХуификаторMod"
