@@ -5,9 +5,9 @@ from .. import loader, utils
 
 @loader.tds
 class WeatherMod(loader.Module):
-    """Показывает погоду. Оставлять (Город) пустым для своего местоположения! """
+    """Показывает погоду.\n Оставлять (Город) пустым для своего местоположения! """
 
-    strings = {"name": "Weather"}
+    strings = {"name": "WeatherMod "}
 
     async def pwcmd(self, m):
         """Изображение погоды.\n.pw (Город)"""
