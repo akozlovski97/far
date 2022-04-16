@@ -21,7 +21,7 @@ class WeatherMod(loader.Module):
         """ASCII-арт погоды.\n.aw (Город)"""
         city = utils.get_args_raw(m).replace(" ", "%20")
         r = requests.get(f"https://wttr.in/{city if city != None else ''}?0?q?T")
-        await utils.answer(m, f"<code>Город: {r.text}</code>")
+        await utils.answer(m, f"<b>Город:</b> <code>{r.text}</code>")
 
     async def wcmd(self, m):
         """Погода в тексте. \n.w (Город) """
