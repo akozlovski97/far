@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class NotesMod(loader.Module):
     """Хранит глобальные заметки"""
     strings = {"name": "NotesMod",
-               "what_note": "<b>Какую записку вы хотите увидеть?</b>\n\n<b>•</b> <code>{notes}</code>",
+               "what_note": "<b>Какую записку вы хотите увидеть?</b>"\n\n<b>•</b> <code>{}</code>,
                "no_note": "<b>Заметка не найдена!</b>",
                "save_what": "<b>Вы должны ответить на сообщение, чтобы сохранить его в заметке, или ввести заметку!</b>",
                "what_name": "<b>Вы должны указать, как должна называться заметка!</b>",
