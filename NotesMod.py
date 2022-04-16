@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class NotesMod(loader.Module):
     """Хранит глобальные заметки"""
     strings = {"name": "NotesMod",
-               "what_note": "<b>Какую записку вы хотите увидеть?\n {notes_item}</b>",
+               "what_note": "<b>Какую записку вы хотите увидеть?</b>\n<code>{}</code>\n\n",
                "no_note": "<b>Заметка не найдена!</b>",
                "save_what": "<b>Вы должны ответить на сообщение, чтобы сохранить его в заметке, или ввести заметку!</b>",
                "what_name": "<b>Вы должны указать, как должна называться заметка!</b>",
@@ -23,7 +23,7 @@ class NotesMod(loader.Module):
                "notes_none": "<b>Нет сохраненных заметок!</b>"}
 
     async def notecmd(self, message):
-        """Получает указанную заметку"""
+        """Показывает указанную заметку"""
         args = utils.get_args(message)
         if not args:
             await utils.answer(message, self.strings("what_note", message))
