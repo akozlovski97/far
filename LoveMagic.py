@@ -2,17 +2,16 @@ import random
 from .. import utils, loader
 from asyncio import sleep
 
-
 @loader.tds
-class ILYMod(loader.Module):
-    """Famous TikTok hearts animation implemented in FTG"""
+class LoveMod(loader.Module):
+    """Анимация любви"""
 
-    strings = {"name": "LoveMagic"}
+    strings = {"name": "LoveMod"}
 
-    async def ilycmd(self, message: "telethon.tl.types.Message") -> None:
-        """This famous TikTok animation..."""
+    async def lovecmd(self, message: "telethon.tl.types.Message") -> None:
+        """Отображает анимацию любви"""
         if not message.out:
-            message = await message.respond("ily")
+            message = await message.respond("love")
 
         arr = ["❤️", "🧡", "💛", "💚", "💙", "💜", "🤎", "🖤", "💖"]
         h = "🤍"
@@ -205,10 +204,11 @@ class ILYMod(loader.Module):
         for _ in range(47):
             fourth = fourth.replace("🤍", "❤️", 1)
             await message.edit(fourth)
-            await sleep(0.07)
+            await sleep(0.1
+)
         for i in range(8):
             await message.edit((arr[0] * (8 - i) + "\n") * (8 - i))
             await sleep(0.3)
-        for i in ["I", "I ❤️", "I ❤️ U", "I ❤️ U!"]:
+        for i in ["Я", "Я ❤️", "Я ❤️ Тебя", "Я ❤️ Тебя!"]:
             await message.edit(f"<b>{i}</b>")
-            await sleep(0.2)
+            await sleep(0.4)
