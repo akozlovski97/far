@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class NotesMod(loader.Module):
     """Хранит глобальные заметки"""
     strings = {"name": "NotesMod",
-               "what_note": "<b>Какую записку вы хотите увидеть?</b>\n\n<b>•</b> <code>{message}</code>",
+               "what_note": "<b>Какую записку вы хотите увидеть?",
                "no_note": "<b>Заметка не найдена!</b>",
                "save_what": "<b>Вы должны ответить на сообщение, чтобы сохранить его в заметке, или ввести заметку!</b>",
                "what_name": "<b>Вы должны указать, как должна называться заметка!</b>",
@@ -26,7 +26,7 @@ class NotesMod(loader.Module):
         """Показывает указанную заметку"""
         args = utils.get_args(message)
         if not args:
-            await utils.answer(message, self.strings("what_note", message))
+            await utils.answer(message, self.strings("what_note", "notes_item" message))
             return
         asset_id = self._db.get(__name__, "notes", {}).get(args[0], None)
         logger.debug(asset_id)
