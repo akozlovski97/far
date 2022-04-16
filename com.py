@@ -26,7 +26,7 @@ class NotesMod(loader.Module):
         """Показывает указанную заметку"""
         args = utils.get_args(message)
         if not args:
-            await utils.answer(message, self.strings("what_note", message("notes_item", message)))                      
+            await utils.answer(message, self.strings("what_note", message))                      
             return
         asset_id = self._db.get(__name__, "notes", {}).get(args[0], None)
         logger.debug(asset_id)
