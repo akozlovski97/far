@@ -27,8 +27,8 @@ class NotesMod(loader.Module):
         args = utils.get_args(message)
         if not args:
             await utils.answer(message, self.strings("what_note", message))
-                                + "\n".join(self.strings("notes_item", message).format(key)
-                                for key in self._db.get(__name__, "notes", {})))
+            + "\n".join(self.strings("notes_item", message).format(key)
+                        for key in self._db.get(__name__, "notes", {})))
             return
         asset_id = self._db.get(__name__, "notes", {}).get(args[0], None)
         logger.debug(asset_id)
