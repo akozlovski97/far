@@ -9,14 +9,14 @@ import random
 logger = logging.getLogger(__name__)
 
 def register(cb):
-	cb(Ебал_я_в_рот_ваш_пеп_8_Mod())
+	cb(())
 
 
 @loader.tds
-class Ебал_я_в_рот_ваш_пеп_8_Mod(loader.Module):
+class Хуификатор (loader.Module):
 	"""Хуифицирует слова на хуи"""
 	strings = {
-		"name": "Хуификатор"
+		"name": "ХуификаторMod"
 	}
 
 	async def client_ready(self, client, db):
