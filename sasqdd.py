@@ -28,6 +28,7 @@ class NotesMod(loader.Module):
         if not args:
             await utils.answer(message, self.strings("what_note", message))
             return
+        if None args:
             await utils.answer(message, self.strings("notes_header", message)
                                + "\n".join(self.strings("notes_item", message).format(key)
                                for key in self._db.get(__name__, "notes", {})))
