@@ -13,7 +13,7 @@ class WeatherMod(loader.Module):
         """Изображение погоды.\n.pw (Город)"""
         args = utils.get_args_raw(m).replace(" ", "%20")
         city = requests.get(
-            f"https://wttr.in/{args if args != None else ''}.png?&lang=ru""
+            f"https://wttr.in/{args if args != None else ''}.png?&lang=ru"
         ).content
         await utils.answer(m, city)
 
