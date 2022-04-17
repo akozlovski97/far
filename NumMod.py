@@ -15,20 +15,20 @@ class NumMod(loader.Module):
 		if not self.db.get("NumMod", "infList", False):
 			self.db.set("NumMod", "infList", {})
 		
-	async def numcmd(self, message):
-		".num (аргумент) (аргумент) (аргумент)...\nВ качестве аргументов используй числа или первые символы строки."
+	async def зcmd(self, message):
+		"Заражает по списку.\nВ качестве аргументов используй числа или первые символы строки.\nИспользуй:.з (аргумент) (аргумент) (аргумент)..."
 		reply = await message.get_reply_message()
 		a = reply.text
 		exlist = self.db.get("NumMod", "exUsers")
 		count_st = 0
 		count_hf = 0
 		if not reply:
-			await message.edit('<b>Нет реплая.</b>')
+			await message.edit('<b>Нет реплая❗️</b>')
 			return
 		args = utils.get_args_raw(message)
 		list_args=[]
 		if not args:
-			await message.edit('<b>ID не обнаружен.</b>')
+			await message.edit('<b>ID не обнаружен❗️</b>')
 			return
 		for i in args.split(' '):
 			if '-' in i:
@@ -37,7 +37,7 @@ class NumMod(loader.Module):
 					for x in range(int(ot_do[0]),int(ot_do[1])+1):
 						list_args.append(str(x))
 				except:
-					await message.respond('<b>Используй правильно функцию "от-до"</b>')
+					await message.respond('<b>Используй правильно функцию "от-до"</b>❗️')
 					return
 			else:
 				list_args.append(i)
@@ -66,26 +66,26 @@ class NumMod(loader.Module):
 								await message.reply(f'Заразить {a}')
 							break
 						else:
-							await message.reply('<b>Ты ввел хуйню!?</b>')
+							await message.reply('<b>Ты дурак⁉️</b>')
 							break
 			await asyncio.sleep(3)
 		await message.delete() 
 				
 		if not count_st:
-			await message.edit('<b>Не найдено ни одного совпадения в начале строк с аргументами.</b>')
+			await message.edit('<b>Не найдено ни одного совпадения в начале строк с аргументами❗️</b>')
 			
 		elif not count_hf:
-			await message.edit('<b>Не найдено ни одной ссылки.</b>')
+			await message.edit('<b>Не найдено ни одной ссылки❗️</b>')
 			
 		elif len(list_args) >= 3:
 			await message.respond('<b>Заражения успешно завершены.</b>')
 			
-	async def zarcmd(self, message):
-		"Заражает всех по реплаю."
+	async def оcmd(self, message):
+		"Заражает всех по реплаю.\n Используй: .о (на чей-то реплай Заразить @id"
 		reply = await message.get_reply_message()
 		exlist = self.db.get("NumMod", "exUsers")
 		if not reply:
-			await message.edit('Нет реплая.')
+			await message.edit('Нет реплая❗️')
 			return
 		json = JSON.loads(reply.to_json())
 		for i in range(0, len(reply.entities) ):
@@ -104,7 +104,7 @@ class NumMod(loader.Module):
 					else:
 						await message.reply(f'Заразить {a}')
 				else:
-					await message.reply('<b>Ты ввел хуйню!?</b>')
+					await message.reply('<b>Ты ввел хуйню⁉️</b>')
 			except:
 				await message.reply("Заразить " + reply.raw_text[json["entities"][i]["offset"]:json["entities"][i]["offset"]+json["entities"][i]["length"]] )
 			await asyncio.sleep(3)
@@ -117,7 +117,7 @@ class NumMod(loader.Module):
 		exlist = exlistGet.copy()
 		if not args:
 			if len(exlist) < 1:
-				await message.edit('<b>Список исключений пуст.</b>')
+				await message.edit('<b>Список исключений пуст❗️</b>')
 				return
 			exsms = ''
 			count = 0
@@ -132,7 +132,7 @@ class NumMod(loader.Module):
 			await message.edit('<b>Список исключений очистен.</b>')
 			return
 		if len(args.split(' ')) > 1 or args[0] != '@':
-			await message.edit('Количество аргументов <b>больше</b> одного, либо начинается <b>не</b> со знака <code>@</code>')
+			await message.edit('Количество аргументов <b>больше</b> одного, либо начинается <b>не</b> со знака <code>@</code>❗️')
 			return
 		if args in exlist:
 			exlist.remove(args)
@@ -144,7 +144,7 @@ class NumMod(loader.Module):
 		await message.edit(f'<b>Пользователь</b> <code>{args}</code> <b>добавлен.</b>')
 		
 	async def zarlistcmd(self, message):
-		""" Лист ваших заражений.\n.zarlist (@id/user) (цифра) {аргумент}\nДля удаления: .zarlist (@id/user)\nАргументы:\n-k -- Добавить тысячу к числу.\n-f -- Поиск по ид'у/юзеру.\n-r -- Добавляет в список по реплаю."""
+		""" Лист ваших заражений.\nИспользуй: .zarlist (@id/user) (цифра) (аргумент)\nДля удаления: .zarlist (@id/user)\nАргументы:\n-k — Добавить тысячу к числу.\n-f — Поиск по @id/user.\n-r — Добавляет в список по реплаю."""
 		args = utils.get_args_raw(message)
 		infList = self.db.get("NumMod", "infList")
 		timezone = "Europe/Kiev"
@@ -155,7 +155,7 @@ class NumMod(loader.Module):
 			pass
 		if not args:
 			if not infList:
-				await utils.answer(message, "Лист заражений <b>пуст</b>.")
+				await utils.answer(message, "Лист заражений <b>пуст</b>❗️")
 				return
 			sms = ''
 			for key, value in infList.items():
@@ -175,12 +175,12 @@ class NumMod(loader.Module):
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"<b>Пользователь</b> <code>{args}</code> <b>удалён из списка.</b>")
 			elif args_list[0][0] != '@':
-				await utils.answer(message, '<b>Это не</b> <code>@id/user</code>.')
+				await utils.answer(message, '<b>Это не</b> <code>@id/user</code>❗️')
 			else:
 				try:
 					user, count = str(args_list[0]), float(args_list[1])
 				except:
-					await utils.answer(message, "<b>Данные были введены не корректно!</b>")
+					await utils.answer(message, "<b>Данные были введены не корректно❗️</b>")
 					return
 				k = ''
 				if '-k' in args.lower():
@@ -191,9 +191,9 @@ class NumMod(loader.Module):
 		else:
 			reply = await message.get_reply_message()
 			if not reply: 
-				return await utils.answer(message, 'Реплай должен быть на смс ириса "<b>...подверг заражению...</b>"')
+				return await utils.answer(message, 'Реплай должен быть на смс ириса "<b>...подверг заражению...</b>"❗️')
 			elif reply.sender_id != 707693258 and not 'подверг заражению' in reply.text:
-				return await utils.answer(message, 'Реплай должен быть на смс ириса "<b>...подверг заражению...</b>"')
+				return await utils.answer(message, 'Реплай должен быть на смс ириса "<b>...подверг заражению...</b>"❗️')
 			else: #☣
 				text = reply.text
 				x = text.index('☣')+4
@@ -205,12 +205,12 @@ class NumMod(loader.Module):
 				await utils.answer(message, f"<b>Пользователь</b> <code>{user}</code> <b>добавлен в список заражений.</b>\n<b>Число</b>: <code>{count}</code>\n<b>Дата</b>: <b>{vremya}</b>")
 
 	async def numfiltercmd(self, message):
-		""".numfilter (аргумент) (аргумент2 или реплай) \nВызови команду, чтобы просмотреть аргументы."""
+		"""Доверенность.\nИспользуй: .numfilter (аргумент) (id или реплай) \nВызови команду, чтобы просмотреть аргументы."""
 		args = utils.get_args_raw(message)
 		reply = await message.get_reply_message()
 		filter_and_users = self.db.get("NumMod", "numfilter", {'users': [], 'filter': None, 'status': False})
 		if not args:
-			return await utils.answer(message, f"-sU --- добавить|удалить юзеров(не больше 5), на которых будет триггериться фильтр(ид|реплай).\n[{', '.join(list('<code>' + i + '</code>' for i in filter_and_users['users']))}]\n-sF --- установить фильтр. Допустим один.\n<code>{filter_and_users['filter'] if filter_and_users['filter'] else '❌Не установлен.'}</code>\n-t --- запустить|остановить.\n<b>{'✅Запущен' if filter_and_users['status'] else '❌Остановлен'}.</b>\n\nРаботает так:\n[фильтр] (бей|зарази[ть]) (1-10) ((@id|user)|link(даже полный линк ид'а))\n[фильтр] лечись|вакцин[ау]|купи[ть] вакцину\nИгнор регистра!!")
+			return await utils.answer(message, f"-sU —— добавить|удалить юзеров(не больше 10), на которых будет триггериться фильтр(ид|реплай).\n[{', '.join(list('<code>' + i + '</code>' for i in filter_and_users['users']))}]\n-sF --- установить фильтр. Допустим один.\n<code>{filter_and_users['filter'] if filter_and_users['filter'] else '❌Не установлен.'}</code>\n-t --- запустить|остановить.\n<b>{'✅Запущен' if filter_and_users['status'] else '❌Остановлен'}.</b>\n\nРаботает так:\n[фильтр] (бей|зарази[ть]) (1-10) ((@id|user)|link(даже полный линк ид'а))\n[фильтр] лечись|вакцин[ау]|купи[ть] вакцину\nИгнор регистра!!")
 		args = args.split(' ', maxsplit=1)
 		if len(args) == 1 and not reply and args[0] != '-t':
 			return await utils.answer(message, '❌ Нет 2 аргумента и реплая.')
@@ -224,11 +224,11 @@ class NumMod(loader.Module):
 			if user_id in filter_and_users['users']:
 				filter_and_users['users'].remove(user_id)
 				await utils.answer(message, f"✅ Ид <code>{user_id}</code> удалён.")
-			elif len(filter_and_users['users']) <= 5:
+			elif len(filter_and_users['users']) <= 10:
 				filter_and_users['users'].append(user_id)
 				await utils.answer(message, f"✅ Ид <code>{user_id}</code> добавлен.")
 			else:
-				return await utils.answer(message, '❌ Превышен лимит в 5 юзеров.')
+				return await utils.answer(message, '❌ Превышен лимит в 10 юзеров.')
 			return self.db.set("NumMod", "numfilter", filter_and_users)
 		elif args[0] == '-sF':
 			try:
