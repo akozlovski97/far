@@ -81,7 +81,7 @@ class NumMod(loader.Module):
 			await message.respond('<b>Заражения успешно завершены.</b>')
 			
 	async def оcmd(self, message):
-		"Заражает всех по реплаю.\n Используй: .о (на чей-то реплай Заразить @id"
+		"Заражает всех по реплаю.\n Используй: .о (на чье то сообщение 'Заразить @id')"
 		reply = await message.get_reply_message()
 		exlist = self.db.get("NumMod", "exUsers")
 		if not reply:
