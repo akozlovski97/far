@@ -13,10 +13,10 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class ExecutorMod(loader.Module):
-    """Хранит глобальные заметки"""
+    """Показывает сохраненные заметки"""
     strings = {"name": "NotexecMod",
                "what_note": "<b>Какой Notexec должен выполняться?</b>",
-               "no_note": "<b>Notexec не найден</b>",
+               "no_note": "<b>Notexec не найден!</b>",
                "execute_fail": ("<b>Не удалось выполнить выражение:</b>\n<code>{}</code>")
                }
     async def notexeccmd(self, message):
