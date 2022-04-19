@@ -8,7 +8,7 @@ class IDMod(loader.Module):
 	strings={"name": "IDMod"}
 	
 	async def ииcmd(self, message):
-		"Показывает @id по списку\nИспользуй: .ии (аргумент) (аргумент) (аргумент)...\nВ качестве аргумента используй цифры со списка."
+		"Показывает @id по списку.\nИспользуй: .ии (аргумент) (аргумент) (аргумент)...\nВ качестве аргумента используй цифры со списка."
 		reply = await message.get_reply_message()
 		a = reply.text
 		count_st = 0
