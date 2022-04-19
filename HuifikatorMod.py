@@ -13,7 +13,7 @@ def register(cb):
 
 
 @loader.tds
-class ХуификаторMod (loader.Module):
+class HuifikatorMod (loader.Module):
 	"""Хуифицирует слова на хуи"""
 	strings = {
 		"name": "HuifikatorMod"
