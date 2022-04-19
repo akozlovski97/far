@@ -16,7 +16,7 @@ class WeatherMod(loader.Module):
             f"https://wttr.in/{args if args != None else ''}.png?&lang=ru"
         ).content
         await utils.answer(m, city)
-        await asyncio.sleep(5)
+        await asyncio.sleep(1)
         await message.delete()
 
     async def awcmd(self, m):
