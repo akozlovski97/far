@@ -16,7 +16,7 @@ class WeatherMod(loader.Module):
             f"https://wttr.in/{args if args != None else ''}.png?&lang=ru"
         ).content
         await utils.answer(m, city)
-        await message.delete()
+        await m.delete()
 
     async def awcmd(self, m):
         """ASCII-арт погоды.\n.aw (Город)"""
