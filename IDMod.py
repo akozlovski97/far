@@ -7,19 +7,19 @@ class IDMod(loader.Module):
 	"Показывает @id по реплаю."
 	strings={"name": "IDMod"}
 	
-	async def getidcmd(self, message):
-		".ии (аргумент) (аргумент) (аргумент)...\n В качестве аргумента используй цифры со списка."
+	async def ииcmd(self, message):
+		"Показывает @id по списку\nИспользуй: .ии (аргумент) (аргумент) (аргумент)...\nВ качестве аргумента используй цифры со списка."
 		reply = await message.get_reply_message()
 		a = reply.text
 		count_st = 0
 		count_hf = 0
 		if not reply:
-			await message.edit('Нет реплая.')
+			await message.edit('Нет реплая❗️')
 			return
 		args = utils.get_args_raw(message)
 		list_args=[]
 		if not args:
-			await message.edit('Нет аргументов')
+			await message.edit('Нет аргументов❗️')
 			return
 		await message.delete()
 		for i in args.split(' '):
@@ -29,7 +29,7 @@ class IDMod(loader.Module):
 					for x in range(int(ot_do[0]),int(ot_do[1])+1):
 						list_args.append(str(x))
 				except:
-					await message.respond('Используй правильно функцию "от-до"')
+					await message.respond('Используй правильно функцию "от-до"❗️')
 					return
 			else:
 				list_args.append(i)
@@ -62,16 +62,16 @@ class IDMod(loader.Module):
 		await message.delete() 
 				
 		if not count_st:
-			await message.edit('Не найдено ни одного совпадения в начале строк с аргументами.')
+			await message.edit('Не найдено ни одного совпадения в начале строк с аргументами❗️')
 			
 		elif not count_hf:
-			await message.edit('Не найдено ни одной ссылки.')
+			await message.edit('Не найдено ни одной ссылки❗️')
 			
 		elif len(list_args) >= 3:
-			await message.respond('<b>Извлечения идов успешно завершены.</b>')
+			await message.respond('<b>Извлечение @id успешно завершено.</b>')
 			
 	async def иcmd(self, message):
-		"Чекает ид по реплаю."
+		"Показывает @id по реплаю.\nИспользуй: .и (в ответ на реплай)"
 		reply = await message.get_reply_message()
 		json = JSON.loads(reply.to_json())
 		for i in range(0, len(reply.entities) ):
