@@ -1,5 +1,5 @@
 import requests
-import asyncio, pytz, re, telethon
+import asyncio, telethon
 from .. import loader, utils
 
 
