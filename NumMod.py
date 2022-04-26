@@ -264,7 +264,7 @@ class NumMod(loader.Module):
 			send_mes['lvl'] = send_mes['lvl'] if send_mes['lvl'] else ''
 			mes = ''.join(send_mes.values())
 			await message.respond(mes)
-		elif:
+		if jertv:
 			send_mes = re.search(r"покажи|жертв[ы]{,2} жертвочку", text)
 			if send_mes: await message.respond('Мои жертвы')
 		else:
