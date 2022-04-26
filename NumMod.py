@@ -186,7 +186,7 @@ class NumMod(loader.Module):
 				if '-k' in args.lower():
 					k+='k'
 				infList[user] = [str(count)+k, vremya]
-				self.db.set("NumMod", "infList", infList, sms)
+				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"Пользователь <code>{user}</code> добавлен в список заражений.\nЧисло: <code>{count}</code>{k}\nДата: <b>{vremya}</b>")
 		else:
 			reply = await message.get_reply_message()
