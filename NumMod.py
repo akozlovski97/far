@@ -264,19 +264,9 @@ class NumMod(loader.Module):
 			send_mes['lvl'] = send_mes['lvl'] if send_mes['lvl'] else ''
 			mes = ''.join(send_mes.values())
 			await message.respond(mes)
+		send_mes = re.search(r"покажи|жертв[ыу]|жерт[ва]{,2}", text)
+		if send_mes: await message.respond('Мои жертвы')
 		else:
 			send_mes = re.search(r"лечись|вакцин[ау]|купи[ть]{,2}", text)
 			if send_mes: await message.respond('.Купить вакцину')
-				
-        async def watcher2(self, message):
-		if send_mes2:
-			send_mes2 = send_mes.groupdict()
-			send_mes2['link'], send_mes['id'] = '@'+send_mes['id'] if send_mes['id'] else send_mes['link'], ''
-			send_mes2['z'] = 'Заразить '
-			send_mes2['lvl'] = send_mes['lvl'] if send_mes['lvl'] else ''
-			mes = ''.join(send_mes.values())
-			await message.respond(mes)
-		else:
-			send_mes2 = re.search(r"покажи|жертв[уы]|жерт[ва]{,2}", text)
-			if send_mes2: await message.respond('Мои жертвы')
 		
