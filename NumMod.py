@@ -159,7 +159,7 @@ class NumMod(loader.Module):
 				return
 			sms = ''
 			for key, value in infList.items():
-				sms+=f'<b>• <code>{key}</code> -- <code>{value[0]}</code> [<i>{value[1]}</i>]</b>\n'
+				sms+=f'<b>• <code>{key}</code> — <code>{value[0]}</code> [<i>{value[1]}</i>]</b>\n'
 			await utils.answer(message, sms)
 			return
 		if not '-r' in args.lower():
@@ -169,7 +169,7 @@ class NumMod(loader.Module):
 				await utils.answer(message, "Лист заражений <b>очищен</b>.")
 			elif args_list[0] in infList and '-f' in args.lower():
 				user = infList[args_list[0]]
-				await utils.answer(message, f"<b>• <code>{args_list[0]}</code> -- <code>{user[0]}</code> [<i>{user[1]}</i>]</b>")
+				await utils.answer(message, f"<b>• <code>{args_list[0]}</code> — <code>{user[0]}</code> [<i>{user[1]}</i>]</b>")
 			elif len(args_list) == 1 and args_list[0] in infList:
 				infList.pop(args_list[0])
 				self.db.set("NumMod", "infList", infList)
