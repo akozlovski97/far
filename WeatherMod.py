@@ -13,7 +13,7 @@ class WeatherMod(loader.Module):
         """Изображение погоды.\n.pw (Город)"""
         args = utils.get_args_raw(m).replace(" ", "%20")
         city = requests.get(
-            f"https://gismeteo.ru/{args if args != None else ''}.png?&lang=ru"
+            f"https://wttr.in/{args if args != None else ''}.png?&lang=ru"
         ).content
         await utils.answer(m, city)
         await m.delete()
@@ -21,15 +21,15 @@ class WeatherMod(loader.Module):
     async def awcmd(self, m):
         """ASCII-арт погоды.\n.aw (Город)"""
         city = utils.get_args_raw(m).replace(" ", "%20")
-        r = requests.get(f"https://gismeteo.ru/{city if city != None else ''}?lang=en")
+        r = requests.get(f"https://wttr.in/{city if city != None else ''}?0?q?T&lang=ru")
         await utils.answer(m, f"<b>Город:</b> <code>{r.text}</code>")
 
     async def wcmd(self, m):
         """Погода в тексте. \n.w (Город) """
         city = utils.get_args_raw(m).replace(" ", "%20")
         if city:
-            r = requests.get("https://gismeteo.ru/" + city + "?format=%l:+%c+%t,+%w+%m")
+            r = requests.get("https://wttr.in/" + city + "?format=%l:+%c+%t,+%w+%m")
         else:
-            r = requests.get("https://gismeteo.ru/?format=%l:+%c+%t,+%w+%m")
+            r = requests.get("https://wttr.in/?format=%l:+%c+%t,+%w+%m")
 
         await utils.answer(m, r.text)
