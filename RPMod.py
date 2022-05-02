@@ -137,7 +137,7 @@ class RPMod(loader.Module):
 
             await utils.answer(
                 message,
-                f'<a href="tg://user?id={sender.id}">{sender.first_name}</a> <b>{msg}</b> <a href="tg://user?id={reply.id}">{reply.first_name}</a>',
+                f'{msg}',
             )
         except Exception:
             return
