@@ -122,19 +122,6 @@ class RPMod(loader.Module):
 
             reply = await message.get_reply_message()
 
-            try:
-                reply = await self._client.get_entity(reply.sender_id)
-            except Exception:
-                pass
-
-            if not reply and not entity:
-                return
-
-            if reply and entity or not reply:
-                reply = entity
-
-            sender = await self._client.get_entity(message.sender_id)
-
             await utils.answer(
                 message,
                 f'{msg}',
