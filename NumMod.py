@@ -188,6 +188,7 @@ class NumMod(loader.Module):
 				infList[user] = [str(count)+k, vremya]
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"Пользователь <code>{user}</code> добавлен в список заражений.\nЧисло: <code>{count}</code>{k}\nДата: <b>{vremya}</b>")
+			await message.delete()
 		else:
 			reply = await message.get_reply_message()
 			if not reply: 
@@ -203,7 +204,7 @@ class NumMod(loader.Module):
 				infList[user] = [str(count), vremya]
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"<b>Пользователь</b> <code>{user}</code> <b>добавлен в список заражений.</b>\n<b>Число</b>: <code>{count}</code>\n<b>Дата</b>: <b>{vremya}</b>")
-				await message.delete() 
+			await message.delete() 
 
 	async def numfiltercmd(self, message):
 		"""Доверенность.\nИспользуй: .numfilter (аргумент) (id или реплай) \nВызови команду, чтобы просмотреть аргументы."""
