@@ -188,6 +188,8 @@ class NumMod(loader.Module):
 				infList[user] = [str(count)+k, vremya]
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"Пользователь <code>{user}</code> добавлен в список заражений.\nЧисло: <code>{count}</code>{k}\nДата: <b>{vremya}</b>")
+				await asyncio.sleep(5)
+			await message.delete()
 		else:
 			reply = await message.get_reply_message()
 			if not reply: 
