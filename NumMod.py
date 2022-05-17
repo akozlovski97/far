@@ -170,11 +170,12 @@ class NumMod(loader.Module):
 			elif args_list[0] in infList and '-f' in args.lower():
 				user = infList[args_list[0]]
 				await utils.answer(message, f"<b>• <code>{args_list[0]}</code> — <code>{user[0]}</code> [<i>{user[1]}</i>]</b>")
-                                await asyncio.sleep(5)
+				await asyncio.sleep(5)
 			elif len(args_list) == 1 and args_list[0] in infList:
 				infList.pop(args_list[0])
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, f"<b>Пользователь</b> <code>{args}</code> <b>удалён из списка.</b>")
+				await asyncio.sleep(3)
 			elif args_list[0][0] != '@':
 				await utils.answer(message, '<b>Это не</b> <code>@id/user</code>❗️')
 			else:
