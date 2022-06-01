@@ -182,7 +182,7 @@ class NumMod(loader.Module):
 				try:
 					user, count = str(args_list[0]), float(args_list[1])
 				except:
-					await utils.answer(message, "<b>Данные были введены не корректно❗️</b>")
+					await utils.answer(message, "<b>Не правильный аргумент либо этого @id нету в списке❗️</b>")
 					return
 				k = ''
 				if '-k' in args.lower():
