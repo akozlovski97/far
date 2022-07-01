@@ -120,4 +120,5 @@ class FilterMod(loader.Module):
             else: pass
         except: pass
         await message.reply(msg)
+        await message.delete()
 
