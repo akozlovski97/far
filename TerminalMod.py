@@ -21,7 +21,7 @@ class TerminalMod(loader.Module):
         "flood_wait_protect_cfg_doc": "Сколько ждать в секундах между правками в командах",
         "what_to_kill": "<b>Нужно ответить на команду терминала, чтобы завершить ее❗️</b>",
         "kill_fail": "<b>Не удалось завершить процесс❗️</b>",
-        "killed": "<b>✅ Завершен</b>",
+        "killed": "<b>✅ Завершен!</b>",
         "no_cmd": "<b>В этом сообщении не выполняется ни одна команда❗️</b>",
         "running": "<b>📋Команда:</b> <code>{}</code>",
         "finished": "\n<b>🏷Код:</b> <code>{}</code>",
@@ -54,7 +54,7 @@ class TerminalMod(loader.Module):
 
     @loader.owner
     async def aptcmd(self, message):
-        """Сокращение для '.terminal apt'"""
+        """Сокращение для .terminal apt"""
         await self.run_command(
             message,
             ("apt " if os.geteuid() == 0 else "sudo -S apt ")
@@ -105,7 +105,7 @@ class TerminalMod(loader.Module):
 
     @loader.owner
     async def terminatecmd(self, message):
-        """Используйте в ответе, чтобы отправить SIGTERM процессу"""
+        """Используйте в ответе, чтобы остановить процесс"""
         if not message.is_reply:
             await utils.answer(message, self.strings("what_to_kill", message))
             return
@@ -122,7 +122,7 @@ class TerminalMod(loader.Module):
 
     @loader.owner
     async def killcmd(self, message):
-        """Используйте реплай, чтобы отправить SIGKILL процессу"""
+        """Используйте реплай, чтобы остановить процесс"""
         if not message.is_reply:
             await utils.answer(message, self.strings("what_to_kill", message))
             return
