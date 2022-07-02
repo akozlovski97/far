@@ -12,12 +12,12 @@ logger = logging.getLogger(__name__)
 
 
 @loader.tds
-class ExecutorMod(loader.Module):
+class nxMod(loader.Module):
     """Показывает сохраненные заметки"""
-    strings = {"name": "NotexecMod",
+    strings = {"name": "nxMod",
                "what_note": "<b>Какой Notexec должен выполняться?</b>",
                "no_note": "<b>Notexec не найден!</b>",
-               "execute_fail": ("<b>Не удалось выполнить выражение:</b>\n<code>{}</code>")
+               "nx_fail": ("<b>Не удалось выполнить выражение:</b>\n<code>{}</code>")
                }
     async def nxcmd(self, message):
         """Показывает сохраненную заметку"""
@@ -47,7 +47,7 @@ class ExecutorMod(loader.Module):
         except Exception:
             exc = sys.exc_info()
             exc = "".join(traceback.format_exception(exc[0], exc[1], exc[2].tb_next.tb_next.tb_next))
-            await utils.answer(message, self.strings("execute_fail", message)
+            await utils.answer(message, self.strings("nx_fail", message)
                                .format(utils.escape_html(exc)))
             return
 
