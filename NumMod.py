@@ -228,11 +228,11 @@ class NumMod(loader.Module):
 			if user_id in filter_and_users['users']:
 				filter_and_users['users'].remove(user_id)
 				await utils.answer(message, f"✅ Ид <code>{user_id}</code> удалён.")
-			elif len(filter_and_users['users']) <= 10:
+			elif len(filter_and_users['users']) <= 50:
 				filter_and_users['users'].append(user_id)
 				await utils.answer(message, f"✅ Ид <code>{user_id}</code> добавлен.")
 			else:
-				return await utils.answer(message, '❌ Превышен лимит в 10 юзеров.')
+				return await utils.answer(message, '❌ Превышен лимит в 50 юзеров.')
 			return self.db.set("NumMod", "numfilter", filter_and_users)
 		elif args[0] == '-sF':
 			try:
