@@ -10,6 +10,7 @@ class NoxMod(loader.Module):
     async def noxcmd(self, message):
         "Нотексес модуль"
         b = reply.raw_text.splitlines()
+        return reply
         b.pop(0)
         hh = []
         for i in b:
