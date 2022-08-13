@@ -12,9 +12,9 @@ class NoxMod(loader.Module):
         b = reply.raw_text.splitlines()
         b.pop(0)
         hh = []
-        for i in b:
-            try:
-                hh.append(i.split('|')[1])
+            for i in b:
+                try:
+                    hh.append(i.split('|')[1])
             except: pass
             json = JSON.loads(reply.to_json())
             sms = ''
