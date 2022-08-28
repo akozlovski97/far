@@ -15,7 +15,7 @@ class IDDDMod(loader.Module):
 		if not self.db.get("NumMod", "infList", False):
 			self.db.set("NumMod", "infList", {})
 		
-	async def идcmd(self, message):
+	async def idcmd(self, message):
 		"Заражает по списку.\nВ качестве аргументов используй числа или первые символы строки.\nИспользуй:.з (аргумент) (аргумент) (аргумент)..."
 		reply = await message.get_reply_message()
 		a = reply.text
