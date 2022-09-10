@@ -107,6 +107,7 @@ class NumMod(loader.Module):
 					await message.reply('<b>Ты ввел хуйню⁉️</b>')
 			except:
 				await message.reply("Заразить " + reply.raw_text[json["entities"][i]["offset"]:json["entities"][i]["offset"]+json["entities"][i]["length"]] )
+			await asyncio.sleep(3)
 		
 	async def exnumcmd(self, message):
 		"Добавляет исключения в модуль.\nИспользуй:  .exnum (@id/user)"
