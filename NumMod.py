@@ -68,7 +68,7 @@ class NumMod(loader.Module):
 						else:
 							await message.reply('<b>Ты дурак⁉️</b>')
 							break
-			await asyncio.sleep(5)
+			await asyncio.sleep(3)
 		await message.delete() 
 				
 		if not count_st:
@@ -144,7 +144,7 @@ class NumMod(loader.Module):
 		await message.edit(f'<b>Пользователь</b> <code>{args}</code> <b>добавлен.</b>')
 		
 	async def zarlistcmd(self, message):
-		""" Лист ваших заражений.\nИспользуй: .zarlist (@id/user) (цифра) (аргумент)\nДля удаления: .zarlist (@id/user)\nАргументы:\n-k — Добавить тысячу к числу.\n-f — Поиск по @id/user.\n-r — Добавляет в список по реплаю."""
+		""" Лист ваших заражений.\nИспользуй: .zarlist (@id/user) (цифра) (аргумент)\nДля удаления: .zarlist (@id/user)\nАргументы:\n-k — Добавить тысячу к числу.\n-f, ф — Поиск по @id/user.\n-r — Добавляет в список по реплаю."""
 		args = utils.get_args_raw(message)
 		infList = self.db.get("NumMod", "infList")
 		timezone = "Europe/Kiev"
@@ -167,7 +167,7 @@ class NumMod(loader.Module):
 				infList.clear()
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, "Лист заражений <b>очищен</b>.")
-			elif args_list[0] in infList and '-f' in args.lower():
+			elif args_list[0] in infList and 'f' or '-f' or 'ф' or '-ф' in args.lower():
 				user = infList[args_list[0]]
 				await utils.answer(message, f"<b>• <code>{args_list[0]}</code> — <code>{user[0]}</code> [<i>{user[1]}</i>]</b>")
 				await asyncio.sleep(5)
@@ -232,7 +232,7 @@ class NumMod(loader.Module):
 				filter_and_users['users'].append(user_id)
 				await utils.answer(message, f"✅ Ид <code>{user_id}</code> добавлен.")
 			else:
-				return await utils.answer(message, '❌ Превышен лимит в 50 юзеров.')
+				return await utils.answer(message, '❌ Превышен лимит в 0 юзеров.')
 			return self.db.set("NumMod", "numfilter", filter_and_users)
 		elif args[0] == '-sF':
 			try:
