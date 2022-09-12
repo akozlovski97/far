@@ -167,7 +167,7 @@ class NumMod(loader.Module):
 				infList.clear()
 				self.db.set("NumMod", "infList", infList)
 				await utils.answer(message, "Лист заражений <b>очищен</b>.")
-			elif args_list[0] in infList and 'f' or '-f' or 'ф' or '-ф' in args.lower():
+			elif args_list[0] in infList and '-f' in args.lower():
 				user = infList[args_list[0]]
 				await utils.answer(message, f"<b>• <code>{args_list[0]}</code> — <code>{user[0]}</code> [<i>{user[1]}</i>]</b>")
 				await asyncio.sleep(5)
