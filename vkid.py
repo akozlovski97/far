@@ -10,7 +10,7 @@ from datetime import timedelta
 class vkidMod(loader.Module):
     """Таймеры на vkid"""
     strings = {"name": "vkidMod"}
-    async def shelfcmd(self, message):
+    async def vkidcmd(self, message):
         for i in range(101):
             await message.respond("Вкид", schedule=timedelta(seconds=600 * int(i)))
             await message.delete()
