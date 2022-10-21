@@ -12,5 +12,5 @@ class vkidMod(loader.Module):
     strings = {"name": "vkidMod"}
     async def vkidcmd(self, message):
         for i in range(101):
-            await message.respond("Вкид", schedule=timedelta(seconds=600 * int(i)))
+            await message.respond("Вкид", schedule=timedelta(seconds=725 * int(i)))
             await message.delete()
