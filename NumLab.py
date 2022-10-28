@@ -147,8 +147,7 @@ class NumMod(loader.Module):
         await message.edit(f'Пользователь <code>{args}</code> добавлен.')
 
     async def зарcmd(self, message):
-        """ Лист ваших заражений.\n.зар {@id/user} {count} {args}\nДля удаления: .зар {@id/user}\nАргументы:\nк --
-        добавить букву k(тысяч) к числу.\nф -- поиск по ид'у/юзеру.\nр -- добавлению в список по реплаю. """
+        """ Лист ваших заражений.\n.зар {@id/user} {count} {args}\nДля удаления: .зар {@id/user}\nАргументы:\nк — добавить букву k(тысяч) к числу.\nф — поиск по ид'у/юзеру.\nр — добавлению в список по реплаю. """
         args = utils.get_args_raw(message)
         infList = self.db.get("NumMod", "infList")
         timezone = "Europe/Kiev"
