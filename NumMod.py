@@ -183,6 +183,8 @@ class NumMod(loader.Module):
 					user, count = str(args_list[0]), float(args_list[1])
 				except:
 					await utils.answer(message, "<b>Не правильный аргумент либо этого @id нету в списке❗️</b>")
+					await asyncio.sleep(5)
+				await message.delete()
 					return
 				k = ''
 				if '-k' in args.lower():
