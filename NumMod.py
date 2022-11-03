@@ -184,7 +184,7 @@ class NumMod(loader.Module):
 				except:
 					await utils.answer(message, "<b>Не правильный аргумент либо этого @id нету в списке❗️</b>")
 					await asyncio.sleep(5)
-				await message.delete()
+					await message.delete()
 					return
 				k = ''
 				if '-k' in args.lower():
