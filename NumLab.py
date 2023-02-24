@@ -23,7 +23,7 @@ class NumMod(loader.Module):
             self.db.set("NumMod", "infList", {})
 
     async def зcmd(self, message):
-        """.з [arg] [arg] [arg]....\nВ качестве аргументов используй числа. или первые символы строки."""
+        """.з (аргумент) (аргумент) (аргумент)....\nВ качестве аргументов используй числа или первые символы строки."""
         reply = await message.get_reply_message()
         a = reply.text
         exlist = self.db.get("NumMod", "exUsers")
@@ -116,7 +116,7 @@ class NumMod(loader.Module):
         await message.delete()
 
     async def exnumcmd(self, message):
-        """Добавляет исключения в модуль.\nИспользуй: .exnum {@user/@id}"""
+        """Добавляет исключения в модуль.\nИспользуй: .exnum (@user/@id)"""
         args = utils.get_args_raw(message)
         exlistGet = self.db.get("NumMod", "exUsers")
         exlist = exlistGet.copy()
@@ -147,7 +147,7 @@ class NumMod(loader.Module):
         await message.edit(f'Пользователь <code>{args}</code> добавлен.')
 
     async def зарcmd(self, message):
-        """ Лист ваших заражений.\n.зар {@id/user} {count} {args}\nДля удаления: .зар {@id/user}\nАргументы:\nк — добавить букву k(тысяч) к числу.\nф — поиск по ид'у/юзеру.\nр — добавлению в список по реплаю. """
+        """ Лист ваших заражений.\n.зар (@id/user) (цифра) (аргумент)\nДля удаления: .зар {@id/user}\nАргументы:\nк — добавить букву k(тысяч) к числу.\nф — поиск по ид'у/юзеру.\nр — добавлению в список по реплаю. """
         args = utils.get_args_raw(message)
         infList = self.db.get("NumMod", "infList")
         timezone = "Europe/Kiev"
@@ -215,7 +215,7 @@ class NumMod(loader.Module):
             )
 
     async def numfiltercmd(self, message):
-        """ .numfilter {args1} {args2 OR reply} \nВызови команду, чтобы просмотреть аргументы."""
+        """ .numfilter (аргумент1) (аргумент2 либо реплай} \nВызови команду, чтобы просмотреть аргументы."""
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
         filter_and_users = self.db.get("NumMod", "numfilter", {'users': [], 'filter': None, 'status': False})
@@ -230,10 +230,11 @@ class NumMod(loader.Module):
                 f"<b>{'✅Запущен' if filter_and_users['status'] else '❌Остановлен'}.</b>\n\n"
                 f"<b>Работает так:</b>\n"
                 f"[фильтр] (еби|бей|кусь|кусай|уеби|заразить) (1-10) ((@id|user)|link(даже полный линк ид'а))\n"
-                f"[фильтр] лечись|хи[лльсяйинг]\n"
-                f"[фильтр] жертвы\n"
-                f"[фильтр] болезни\n"
+                f"[фильтр] вак|лечись|хи[лльсяйинг]\n"
+                f"[фильтр] ежа|ж[ертвы]\n"
+                f"[фильтр] бол[езниь]\n"
                 f"[фильтр] лаб[уа]\n"
+                f"[фильтр] вир[усы]\n"
                 f"<b>Прокачка навыков:</b>\n"
                 f"[фильтр] (навык) (0-5)\n"
                 f"Например:[фильтр] квалификация 4 (улучшает квалификацию учённых на 4 ур.\n"     
@@ -346,7 +347,7 @@ class NumMod(loader.Module):
             mes = ''.join(send_mesip.values())
             await message.respond(mes)
 
-        if re.search(r"б[олезниь]{,2}", text):
+        if re.search(r"бол[езниь]{,2}", text):
             await message.respond('Мои болезни')
         if re.search(r"ежа|ж[ертвы]{,2}", text):
             await message.respond('Мои жертвы')
