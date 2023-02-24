@@ -346,11 +346,13 @@ class NumMod(loader.Module):
             mes = ''.join(send_mesip.values())
             await message.respond(mes)
 
-        if re.search(r"болезни", text):
-            await message.respond('мои болезни')
-        if re.search(r"жертвы", text):
-            await message.respond('мои жертвы')
+        if re.search(r"б[олезниь]{,2}", text):
+            await message.respond('Мои болезни')
+        if re.search(r"ежа|ж[ертвы]{,2}", text):
+            await message.respond('Мои жертвы')
         if re.search(r"лаб[уа]{,2}", text):
-            await message.respond('.лаб')
+            await message.respond('Моя лаба')
+        if re.search(r"вир[усы]{,2}", text):
+            await message.respond('+вирусы')
         elif re.search(r"вак|лечись|хи[лльсяйинг]{,2}", text):
             await message.respond('.купить вакцину')
