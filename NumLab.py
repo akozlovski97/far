@@ -352,5 +352,5 @@ class NumMod(loader.Module):
             await message.respond('мои жертвы')
         if re.search(r"лаб[уа]{,2}", text):
             await message.respond('.лаб')
-        elif re.search(r"лечись|хи[лльсяйинг]{,2}", text):
+        elif re.search(r"вак|лечись|хи[лльсяйинг]{,2}", text):
             await message.respond('.купить вакцину')
