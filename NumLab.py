@@ -349,7 +349,7 @@ class NumMod(loader.Module):
 
         if re.search(r"бол[езниь]{,2}", text):
             await message.respond('Мои болезни')
-        if re.search(r"ежа|ж[ертвы]{,2}", text):
+        if re.search(r"ежа|жертвы", text):
             await message.respond('Мои жертвы')
         if re.search(r"лаб[уа]{,2}", text):
             await message.respond('Моя лаба')
