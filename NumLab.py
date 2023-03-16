@@ -353,7 +353,7 @@ class NumMod(loader.Module):
             await message.respond('Мои жертвы')
         if re.search(r"лаб[уа]{,2}", text):
             await message.respond('Моя лаба')
-        if re.search(r"л", text):
+        if re.search("л", text):
             await message.respond('Моя лаба')
         if re.search(r"вир[усы]{,2}", text):
             await message.respond('+вирусы')
