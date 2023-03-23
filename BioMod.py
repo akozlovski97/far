@@ -1283,7 +1283,7 @@ class BioMod(loader.Module):
         
         if self.config["Доступ к хиллингу"] == True:    
             if re.search(r"вак[цинау]{,3}|леч[ись]{,2}|хи[лльсяйинг]{,2}|лек[арство]{,2}", text, flags=re.ASCII):
-                await message.reply('.купить вакцину')
+                await message.respond('.купить вакцину')
             if re.search(r"цен[ау]{,2}|вч[ек]{,2}", text):
                 await message.reply('<i>купить вакцину</i>')
         toxt = text.replace(f"{nik} ", "")
