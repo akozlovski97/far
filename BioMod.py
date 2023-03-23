@@ -283,7 +283,7 @@ class BioMod(loader.Module):
         args = utils.get_args_raw(message)
         if not args:
             vlad = reply.sender_id
-            hui = f'<code>/заразить 10 @{vlad}<code>\nспасибо <emoji document_id=5215327827745839526>❤️</emoji>'
+            hui = f'Заразить 10 @{vlad}'
             
 
 
@@ -327,7 +327,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'<code>/заразить 1 {users}</code>\n<code>/купить вакцину</code>',
+                                    f'Заразить 1 {users}',
                                     reply_to=reply)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
@@ -340,7 +340,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'<code>/заразить 1 {a}</code>\n<code>/купить вакцину</code>',
+                                    f'Заразить 1 {a}',
                                     reply_to=reply)
                         else:
                             await message.reply(
@@ -388,7 +388,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'/заразить {users}')
+                            await message.reply(f'Заразить {users}')
                     elif link.startswith('https://t.me'):
                         a = '@' + str(link.split("/")[3])
                         if a in exlist:
@@ -398,7 +398,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'/заразить {a}')
+                            await message.reply(f'Заразить {a}')
                     else:
                         await message.reply(
                             self.strings("hueta")
@@ -914,8 +914,7 @@ class BioMod(loader.Module):
                 707693258, 
                 5226378684, 
                 5137994780, 
-                5434504334,
-                1136703023
+                5434504334
             ]
             if message.sender_id not in irises:
                 return            
@@ -1168,7 +1167,7 @@ class BioMod(loader.Module):
                 
                 send_mesа = send_mesа.groupdict()
                 send_mesа['link'], send_mesа['id'] = '@' + send_mesа['id'] if send_mesа['id'] else send_mesа['link'], ''
-                send_mesа['z'] = '/заразить '
+                send_mesа['z'] = 'Заразить '
                 send_mesа['lvl'] = send_mesа['lvl'] or ''
                 mes = ''.join(send_mesа.values())
                 await message.reply(mes)
@@ -1295,7 +1294,7 @@ class BioMod(loader.Module):
 
             if re.fullmatch(r"л|лаб[ау]{,2}", toxt, flags=re.ASCII): # регулярка
                 lab_raw = await self.message_q( # отправляет сообщение боту и возвращает текст
-                    f"лаб",
+                    f"/лаб",
                     5443619563,
                     mark_read=True,
                     delete=True,
@@ -1590,12 +1589,12 @@ class BioMod(loader.Module):
                             list = []
                             for i in link.split('='):
                                 list.append(i)
-                            await message.reply(f'/id <code>@{list[1]}</code>'
+                            await message.reply(f'.ид <code>@{list[1]}</code>'
                             )
                             break
                         elif link.startswith('https://t.me'):
                             a ='@' + str(link.split('/')[3])
-                            await message.reply(f'/id <code>{a}</code>'
+                            await message.reply(f'.ид <code>{a}</code>'
                             )
                             break
                         else:
