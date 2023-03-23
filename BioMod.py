@@ -412,8 +412,8 @@ class BioMod(loader.Module):
                                 )
                             )
                     else:
-                        await message.reply(f"/заразить {blayt}")
-                await asyncio.sleep(3.3)
+                        await message.respond(f"Заразить {blayt}")
+                await asyncio.sleep(3)
         
         except TypeError:
             err = "2"
