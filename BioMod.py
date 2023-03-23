@@ -327,7 +327,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'Заразить 1 {users}',
+                                    f'Заразить {users}',
                                     reply_to=reply)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
@@ -340,7 +340,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'Заразить 1 {a}',
+                                    f'Заразить {a}',
                                     reply_to=reply)
                         else:
                             await message.reply(
