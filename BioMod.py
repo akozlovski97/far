@@ -1270,11 +1270,11 @@ class BioMod(loader.Module):
             
         if self.config["Доступ к болезням"] == True:  
             if re.search(r"бол[езьни]{,5}\b", text, flags=re.ASCII):
-                await message.reply('/мои болезни')
+                await message.reply('Мои болезни')
         
         if self.config["Доступ к жертвам"] == True:  
             if re.search(r"жертв[ыау]{,2}|еж[ау]{,2}", text, flags=re.ASCII):
-                await message.reply('/мои жертвы')
+                await message.reply('Мои жертвы')
 
         if self.config["Доступ к вирусам"] == True:  
             if re.search(r"-вирус[ыа]{,2}", text):
@@ -1284,7 +1284,7 @@ class BioMod(loader.Module):
         
         if self.config["Доступ к хиллингу"] == True:    
             if re.search(r"вак[цинау]{,3}|леч[ись]{,2}|хи[лльсяйинг]{,2}|лек[арство]{,2}", text, flags=re.ASCII):
-                await message.reply('/купить вакцину')
+                await message.reply('.купить вакцину')
             if re.search(r"цен[ау]{,2}|вч[ек]{,2}", text):
                 await message.reply('<i>купить вакцину</i>')
         toxt = text.replace(f"{nik} ", "")
@@ -1293,9 +1293,9 @@ class BioMod(loader.Module):
             #    await message.reply('👇')
             #    await message.respond('/моя лаба')
 
-            if re.fullmatch(r"лаб[ау]{,2}", toxt, flags=re.ASCII): # регулярка
+            if re.fullmatch(r"л|лаб[ау]{,2}", toxt, flags=re.ASCII): # регулярка
                 lab_raw = await self.message_q( # отправляет сообщение боту и возвращает текст
-                    f"/лаб",
+                    f"лаб",
                     5443619563,
                     mark_read=True,
                     delete=True,
