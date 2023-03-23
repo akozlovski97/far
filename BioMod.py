@@ -388,7 +388,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'Заразить {users}')
+                            await message.respond(f'Заразить {users}')
                     elif link.startswith('https://t.me'):
                         a = '@' + str(link.split("/")[3])
                         if a in exlist:
@@ -398,7 +398,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'Заразить {a}')
+                            await message.respond(f'Заразить {a}')
                     else:
                         await message.reply(
                             self.strings("hueta")
