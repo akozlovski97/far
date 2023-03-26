@@ -310,8 +310,6 @@ class BioMod(loader.Module):
                     if 'href="' in x:
                         count_hf = 1
                         del_msg = 0
-                        if not del_msg:
-                            await message.delete()
                         del_msg += 1
                         b = x.find('href="') + 6
                         c = x.find('">')
