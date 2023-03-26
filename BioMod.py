@@ -478,12 +478,10 @@ class BioMod(loader.Module):
 Список ваших заражений.
 .зар {@id} {чис.ло} {арг}
 Для удаления: .зар {@id}
-
 Аргументы:
 к ->  добавить букву k(тысяч) к числу.
 ф/о ->  поиск по ид'у/юзеру.
 р ->  добавлению в список по реплаю.
-
 -backup ->  бэкап зарлиста в файл.
 -restore ->  добавление жертв из бэкапа в зарлист.
 -restore --y ->  полная замена зарлиста на бэкап.
@@ -1534,121 +1532,6 @@ class BioMod(loader.Module):
 #######################################################
 
 ###     
-    async def гcmd(self, message):
-        """
-[arg] [arg] [arg]....
-Выполняет команду /ид по реплаю.
-Аргументом являются числа и первые символы строки.
-        """
-        
-        reply = await message.get_reply_message()
-        
-        count_st = 0
-        count_hf = 0
-        if not reply:
-            await message.reply(
-                self.strings("not_reply")
-            )
-            return
-
-        args = utils.get_args_raw(message)
-        list_args=[]
-        if not args:
-            await message.reply(
-                self.strings("not_args")
-            )
-            return
-        a = reply.text
-        for i in args.split(' '):
-            if '-' in i:
-                ot_do = i.split('-')
-                try:
-                    for x in range(int(ot_do[0]),int(ot_do[1])+1):
-                        list_args.append(str(x))
-                except:
-                    await message.reply(
-                        self.strings("ot_do")
-                    )
-                    return
-            else:
-                list_args.append(i)
-        lis = []
-        for i in a.splitlines():
-            lis.append(i)
-        for start in list_args:
-            for x in lis:
-                if x.lower().startswith(str(start.lower())):
-                    count_st = 1
-                    if 'href="' in x:
-                        count_hf = 1
-                        b=x.find('href="')+6
-                        c=x.find('">')
-                        link = x[b:c]
-                        if link.startswith('tg'):
-                            list = []
-                            for i in link.split('='):
-                                list.append(i)
-                            await message.reply(f'.ид <code>@{list[1]}</code>'
-                            )
-                            break
-                        elif link.startswith('https://t.me'):
-                            a ='@' + str(link.split('/')[3])
-                            await message.reply(f'.ид <code>{a}</code>'
-                            )
-                            break
-                        else:
-                            await message.reply(
-                                self.strings("hueta")
-                            )
-                            break
-            await asyncio.sleep(3)
-        if not count_st:
-            await message.reply(
-                self.strings("no_sargs")
-            )
-        elif not count_hf:
-            await message.reply(
-                self.strings("nolink")
-            )
-        elif len(list_args) >= 5:
-            await message.respond(
-                self.strings("tids")
-            )
-            await asyncio.sleep(3)
-
-
-    async def иcmd(self, message):
-        """
-Чекает все айди по реплаю.
-Используй ответ на сообщение с @id/@user/link
-        """
-        reply = await message.get_reply_message()
-        if not reply:
-            await message.reply(
-                self.strings("not_reply")
-            )
-            return
-        json = JSON.loads(reply.to_json())
-        for i in range(len(reply.entities)):
-            try:
-                link = json["entities"][i]["url"]
-                if link.startswith('tg'):
-                    users = '@' + link.split('=')[1]
-                    await message.reply(f'!id {users}')
-                elif link.startswith('https://t.me'):
-                    a = '@' + str(link.split("/")[3])
-                    await message.reply(f'!id {a}')
-                else:
-                    await message.reply(
-                        self.strings("hueta")
-                    )
-            except Exception:
-                hueta = validate_text(reply.raw_text)
-                
-                blayt = hueta[json["entities"][i]["offset"]:json["entities"][i]["offset"] + json["entities"][i]["length"]]
-                await message.reply(f"!id <code>{blayt}</code>")
-            await asyncio.sleep(3)
-    
     async def бcmd(self, message):
         """
 Используй ответом на биотопы/жертвы и т.п
