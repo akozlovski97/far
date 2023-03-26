@@ -345,7 +345,8 @@ class BioMod(loader.Module):
                                 self.strings("hueta")
                             )
                         break
-            await asyncio.sleep(3)   
+            await asyncio.sleep(3)
+            await message.delete()
         if not count_st:
             await message.reply(
                 self.strings("no_sargs")
