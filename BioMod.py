@@ -421,7 +421,7 @@ class BioMod(loader.Module):
                 self.strings("hueta")
             )
         if err != "2":
-            await message.delete()
+            await message.respond("еррор")
     async def искcmd(self, message):
         """
 Добавляет исключения для команд .з и .о
