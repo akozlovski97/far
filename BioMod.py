@@ -1279,7 +1279,7 @@ class BioMod(loader.Module):
                 await message.reply('+вирусы')
         
         if self.config["Доступ к хиллингу"] == True:    
-            if re.search(r"ва[кцинау]{,3}|леч[ись]{,2}|хи[лльсяйинг]{,2}|лек[арство]{,2}", text, flags=re.ASCII):
+            if re.search(r"ва[квцинау]{,3}|леч[ись]{,2}|хи[лльсяйинг]{,2}|лек[арство]{,2}", text, flags=re.ASCII):
                 await message.respond('.купить вакцину')
             if re.search(r"цен[ау]{,2}|вч[ек]{,2}", text):
                 await message.reply('<i>купить вакцину</i>')
