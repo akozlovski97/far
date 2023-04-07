@@ -283,7 +283,7 @@ class BioMod(loader.Module):
         args = utils.get_args_raw(message)
         if not args:
             vlad = reply.sender_id
-            hui = f'Заразить 10 @{vlad}'
+            hui = f'Заразить 10 <code>@{vlad}</code>'
             
 
 
@@ -325,7 +325,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'Заразить {users}',
+                                    f'Заразить <code>{users}</code>',
                                     reply_to=reply)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
@@ -338,7 +338,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'Заразить {a}',
+                                    f'Заразить <code>{a}</code>',
                                     reply_to=reply)
                         else:
                             await message.reply(
@@ -387,7 +387,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.respond(f'Заразить {users}')
+                            await message.respond(f'Заразить <code>{users}</code>')
                     elif link.startswith('https://t.me'):
                         a = '@' + str(link.split("/")[3])
                         if a in exlist:
@@ -397,7 +397,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.respond(f'Заразить {a}')
+                            await message.respond(f'Заразить <code>{a}</code>')
                     else:
                         await message.reply(
                             self.strings("hueta")
@@ -411,7 +411,7 @@ class BioMod(loader.Module):
                                 )
                             )
                     else:
-                        await message.respond(f"Заразить {blayt}")
+                        await message.respond(f"Заразить <code>{blayt}</code>")
                 await asyncio.sleep(3)
         
         except TypeError:
