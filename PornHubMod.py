@@ -18,7 +18,7 @@ class PhSrchMod(loader.Module):
         else:
             return await m.delete()
         api = PornhubApi()
-        data = api.search.search_videos(srch, ordering="mostviewed")
+        data = api.search.search(srch, ordering="mostviewed")
         video = choice(data.videos)
         await utils.answer(
             m,
