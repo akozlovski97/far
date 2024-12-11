@@ -7,6 +7,6 @@ class GayMod(loader.Module):
     """Узнай на сколько ты гей!"""
     strings = {"name": "GayMod"}
     
-    def gaycmd(self, message):
+    async def gaycmd(self, message):
         """Покажет на сколько ты гей"""
-            await message.respond("<b>Ты гей на<b\> " + str(random.randrange(0, 101)) + "%")
+        await message.respond("<b>Ты гей на</b> " + str(random.randrange(0, 101)) + "%")
